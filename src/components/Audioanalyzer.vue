@@ -1,6 +1,17 @@
 <template>
+<div>
   <div id="mp3">
-    <audio src="../assets/music/1.mp3" id="audio" controls class="col-12 p-0 w-100"></audio>
+    <audio src="../assets/music/1.mp3" id="audio"></audio>
+  </div>
+  <div class="col-12 p-0 border">
+    <div class="row justify-content-center">
+      <div class="col text-center"> <button> jajaj </button> </div>
+      <div class="col">asd</div>
+      <div class="col">sda</div>
+      <div class="col">dfs</div>
+      <div class="col">asd</div>
+    </div>
+  </div>
   </div>
 </template>
 
