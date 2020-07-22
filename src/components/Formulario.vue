@@ -2,7 +2,6 @@
   <div class="col-12 mt-3 p-0">
     <b-button v-b-toggle.collapse-1 variant="primary" class="w-100">¿Quieres dejar tú huella?</b-button>
     <b-collapse id="collapse-1" class="mt-2">
-      <p class="text-center">Publica tú canción favorita</p>
       <form class="container border p-3">
         <div class="form-group">
           <input
