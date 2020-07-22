@@ -8,9 +8,7 @@
          <Formulario></Formulario>
        </div>
        <div class="col-lg-4 col-12 row border m-0">
-         <div class="col-12">
-           <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, veritatis. Provident sunt blanditiis accusantium magnam quisquam ex perspiciatis, quos vitae non! Placeat ut mollitia voluptatibus. Iusto nobis dolorum iste facilis! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste numquam accusamus quo vitae, tempora incidunt. Ullam mollitia quos quaerat eligendi ex perferendis repellendus quia? Magni necessitatibus delectus aspernatur quia nisi!</p>
-         </div>
+         
        </div>
      </div>
   </div>
