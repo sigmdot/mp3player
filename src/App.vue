@@ -5,4 +5,7 @@
 </template>
 
 <style>
+.loljaja{
+  background-color: #202741 !important;
+}
 </style>
