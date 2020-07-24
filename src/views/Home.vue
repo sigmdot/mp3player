@@ -25,7 +25,7 @@ export default {
   name: 'Home',
   data(){
     return{
-      selecionado
+      selecionado:null
     }
   },
   components: {
@@ -36,6 +36,7 @@ export default {
   methods:{
     seleccionado(index){
       this.selecionado = index;
+      console.log(index);
     }
   }
 }

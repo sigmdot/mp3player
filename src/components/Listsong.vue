@@ -11,13 +11,7 @@
     <b-collapse v-bind:id="idPla" class="mt-2">
       <div class="container">
         <ol class="list-group list-group-flush">
-          <ListItem @seleccionado="seleccionarLista(index)"></ListItem>
-          <ListItem></ListItem>
-          <ListItem></ListItem>
-          <ListItem></ListItem>
-          <ListItem></ListItem>
-          <ListItem></ListItem>
-
+          <ListItem v-for="index in 6" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index"></ListItem>
         </ol>
       </div>
     </b-collapse>
@@ -46,7 +40,8 @@ export default {
     },
     seleccionarLista(index){
       this.seleccionado = index;
-      this.$$emit('seleccionarDato',index);
+      this.$emit('seleccionarDato',index);
+      console.log("emitido 2");
     }
   }
 };

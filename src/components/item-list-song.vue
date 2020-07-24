@@ -1,7 +1,7 @@
 <template>
   <li class="list-group-item ">
-    <div class="col-12 p-0 row m-0 ">
-      <div class="col-12 p-0 scrolll" >
+    <div class="col-12 p-0 row m-0 " @click="seleccionar">
+      <div class="col-12 p-0" :class="{scrolll : seleccionadix == index}">
         <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem quas amet magnam necessitatibus quisquam ad porro dolorem ipsum consequatur, in vel. Atque quasi ipsa iste consequuntur? Fugiat, ipsam quod.</span>
       </div>
       <div class="col-6 p-0 " style="overflow: hidden !important;
@@ -17,7 +17,11 @@ export default {
   methods:{
     seleccionar(){
       this.$emit('seleccionado');
+      console.log("emitido 1")
     }
+  },
+  props:{
+    seleccionadix:Number,index:Number
   }
 }
 </script>
