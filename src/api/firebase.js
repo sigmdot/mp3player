@@ -14,5 +14,8 @@ const firebaseConfig = firebase.initializeApp({
     measurementId: "G-SL06NSTG4R"
   });
 
-  var propio = firebaseConfig.firestore().collection('mipla');
-  var visitas = firebaseConfig.firestore().collection('visitas');
+  const propio = firebaseConfig.firestore().collection('miplay');
+  const visitas = firebaseConfig.firestore().collection('visita');
+
+  export {propio}
+  export {visitas}

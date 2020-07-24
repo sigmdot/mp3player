@@ -11,7 +11,7 @@
     <b-collapse v-bind:id="idPla">
       <div class="container">
         <ol class="list-group">
-          <ListItem v-for="index in 6" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index"></ListItem>
+          <ListItem v-for="(cancion,index) in arraySongs" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index"></ListItem>
         </ol>
       </div>
     </b-collapse>
@@ -24,7 +24,8 @@ export default {
   name: "List",
   props:{
     nombrePla:String,
-    idPla:String
+    idPla:String,
+    arraySongs:Array
   },
   components:{
     ListItem

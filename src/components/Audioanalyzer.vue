@@ -18,6 +18,8 @@
 <script>
 import AudioMotionAnalyzer from "audiomotion-analyzer";
 import Button from "@/components/Button.vue";
+
+
 export default {
   name: "AudioAnalyzer",
   components: {
