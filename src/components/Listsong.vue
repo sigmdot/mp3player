@@ -1,30 +1,45 @@
 <template>
-  <div class="col-12 p-0 mb-2">
-    <div v-b-toggle="'songs'" class="btn btn-outline-secondary p-2 w-100">
+  <div class="col-12 p-0 mb-2 yap">
+    <div @click="lol" class="btn btn-outline-secondary p-2 w-100">
       <div class="col-12 row m-0 p-0">
-        <div class="col-11 p-0 fontsize">Mi playlist!</div>
+        <div class="col-11 p-0 fontsize"> {{nombrePla}} </div>
         <div class="col-1 p-0 text-center">
           <b-icon icon="caret-down-fill"></b-icon>
         </div>
       </div>
     </div>
-    <b-collapse id="songs" class="mt-2">
+    <b-collapse v-bind:id="idPla" class="mt-2">
       <div class="container">
-        <ul class="list-group list-group-flush">
-          
-          <li class="list-group-item">jasdjasdjasjdjasdjasjdasjdsajjasjdsjajdsajjsadjasjdasjdasjdjadsdjasj</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <ol class="list-group list-group-flush">
+          <ListItem></ListItem>
+          <ListItem></ListItem>
+          <ListItem></ListItem>
+          <ListItem></ListItem>
+          <ListItem></ListItem>
+          <ListItem></ListItem>
+
+        </ol>
       </div>
     </b-collapse>
   </div>
 </template>
 
 <script>
+import ListItem from '@/components/item-list-song.vue'
 export default {
   name: "List",
+  props:{
+    nombrePla:String,
+    idPla:String
+  },
+  components:{
+    ListItem
+  },
+  methods:{
+    lol(){
+      this.$root.$emit('bv::toggle::collapse', this.idPla)
+    }
+  }
 };
 </script>
 
@@ -32,11 +47,7 @@ export default {
 .btn {
   font-size: 1.5rem !important;
 }
-.list-group-item{
-    max-height: 250px !important;
-    max-width: 100% !important;
-}
-li{
-    overflow: hidden !important;
+.col-12{
+  height: 100%;
 }
 </style>
