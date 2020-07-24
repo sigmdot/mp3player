@@ -5,11 +5,11 @@
     </div>
     <div class="col-12 p-0 border sizeRe">
       <div class="row justify-content-center m-0 h-100">
-        <Button icono="skip-backward-fill" @click="atras" :disabled="disabled" class="border-right"></Button>
-        <Button icono="play-fill" @click="play" class="border-right"></Button>
-        <Button icono="skip-forward-fill" @click="adelante" class="border-right"></Button>
-        <Button :icono="heart" @click="like" class="border-right"></Button>
-        <Button icono="shuffle" @click="aleatorio"></Button>
+        <Button icono="skip-backward-fill" @click.native="atras" class="border-right"></Button>
+        <Button icono="play-fill" @click.native="play" class="border-right"></Button>
+        <Button icono="skip-forward-fill" @click.native="adelante" class="border-right"></Button>
+        <Button :icono="heart" @click.native="like" class="border-right"></Button>
+        <Button icono="shuffle" @click.native="aleatorio"></Button>
       </div>
     </div>
   </div>
@@ -25,7 +25,8 @@ export default {
   },
   data(){
     return{
-      heart:"heart-fill"
+      heart:"heart-fill",
+      disabled:false
     }
   },
   mounted() {
@@ -45,6 +46,23 @@ export default {
     );
     console.log(audioMotion);
   },
+  methods:{
+    atras(){
+      console.log('Atras');
+    },
+    play(){
+      console.log('Play!');
+    },
+    adelante(){
+      console.log('Adelante');
+    },
+    like(){
+      console.log('Like');
+    },
+    aleatorio(){
+      console.log('Aleatorio');
+    }
+  }
 };
 </script>
 

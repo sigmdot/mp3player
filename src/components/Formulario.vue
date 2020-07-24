@@ -1,8 +1,8 @@
 <template>
   <div class="col-12 mt-3 p-0">
-    <b-button v-b-toggle.collapse-1 variant="primary" class="w-100">¿Quieres dejar tú huella?</b-button>
+    <button v-b-toggle.collapse-1 class="btn text-light w-100 loljaja ">¿Quieres dejar tú marca?</button>
     <b-collapse id="collapse-1" class="mt-2">
-      <form class="container border p-3">
+      <form class="container border p-3 jiojio">
         <div class="form-group">
           <input
             type="text"
@@ -37,4 +37,8 @@ export default {
 </script>
 
 <style>
+
+.jiojio{
+  background-color: #BCA000;
+}
 </style>

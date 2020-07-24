@@ -9,7 +9,7 @@
        </div>
        <div class="col-lg-4 col-12 row border m-0">
          <List nombrePla="Mi playlist!" idPla="songs" @seleccionarDato="seleccionado"></List>
-         <List nombrePla="Visitas!" idPla='lol'></List>
+         <List nombrePla="Visitas!" idPla='lol' @seleccionarDato="seleccionado"></List>
 
        </div>
      </div>

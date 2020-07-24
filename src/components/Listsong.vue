@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 p-0 mb-2 yap">
-    <div @click="lol" class="btn btn-outline-secondary p-2 w-100">
+    <div @click="lol" class="btn btn-secondary p-2 w-100">
       <div class="col-12 row m-0 p-0">
         <div class="col-11 p-0 fontsize"> {{nombrePla}} </div>
         <div class="col-1 p-0 text-center">
@@ -8,9 +8,9 @@
         </div>
       </div>
     </div>
-    <b-collapse v-bind:id="idPla" class="mt-2">
+    <b-collapse v-bind:id="idPla">
       <div class="container">
-        <ol class="list-group list-group-flush">
+        <ol class="list-group">
           <ListItem v-for="index in 6" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index"></ListItem>
         </ol>
       </div>
@@ -40,6 +40,7 @@ export default {
     },
     seleccionarLista(index){
       this.seleccionado = index;
+      console.log(this.seleccionado);
       this.$emit('seleccionarDato',index);
       console.log("emitido 2");
     }
