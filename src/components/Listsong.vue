@@ -1,5 +1,6 @@
 <template>
   <div class="col-12 p-0 mb-2 yap">
+    <vue-element-loading :active="isActive" spinner="line-wave" color="#FF6700"/>
     <div @click="lol" class="btn btn-secondary p-2 w-100">
       <div class="col-12 row m-0 p-0">
         <div class="col-11 p-0 fontsize"> {{nombrePla}} </div>
@@ -20,6 +21,8 @@
 
 <script>
 import ListItem from '@/components/item-list-song.vue'
+import VueElementLoading from 'vue-element-loading'
+
 export default {
   name: "List",
   props:{
@@ -28,11 +31,13 @@ export default {
     arraySongs:Array
   },
   components:{
-    ListItem
+    ListItem,
+    VueElementLoading
   },
   data(){
     return{
-      seleccionado:null
+      seleccionado:null,
+      isActive:true
     }
   },
   methods:{
@@ -45,6 +50,9 @@ export default {
       this.$emit('seleccionarDato',index);
       console.log("emitido 2");
     }
+  },
+  updated(){
+    this.isActive = false;
   }
 };
 </script>

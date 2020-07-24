@@ -23,7 +23,12 @@
           />
         </div>
         <div class="form-group">
-          <input type="file" class="form-control-file" id="exampleFormControlFile1" />
+          <input type="file" class="form-control-file" id="audiofile" hidden="hidden"/>
+          <button type="button" class="btn btn-secondary" @click="abrirfile"> <b-icon icon="music-note-beamed"> </b-icon> Sube tú canción acá </button>
+          <audio src="" v-if="audioiscreated"></audio>
+        </div>
+        <div class="text-right">
+          <button type="button" class="btn btn-primary">Subela subela!</button>
         </div>
       </form>
     </b-collapse>
@@ -33,6 +38,13 @@
 <script>
 export default {
   name: "Formulario",
+  methods:{
+    abrirfile(){
+      const audioFile = document.getElementById("audiofile");
+      console.log('xd')
+      audioFile.click();
+    }
+  }
 };
 </script>
 

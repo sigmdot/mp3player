@@ -1,4 +1,5 @@
 <template>
+  
   <div class="home container-fluid border">
      <div class="row m-0 p-2">
        <div class="col-lg-8 col-12 row border m-0 mb-2">
@@ -30,7 +31,8 @@ export default {
     return{
       selecionado:null,
       mipla:[],
-      visitas:[]
+      visitas:[],
+      show:true
     }
   },
   components: {
@@ -47,6 +49,9 @@ export default {
   firestore:{
     mipla:propio,
     visitas:visitas
+  },
+  updated(){
+    this.show = false;
   }
 }
 </script>
