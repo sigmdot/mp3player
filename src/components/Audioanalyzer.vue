@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="mp3">
-      <audio src id="audio"></audio>
+      <audio src="https://firebasestorage.googleapis.com/v0/b/mp3player-9f953.appspot.com/o/miplaylist%2F08%20-%20Jarabe%20para%20la%20tos.mp3?alt=media&token=00b6e474-92e8-43ec-b694-7c8539678ffd" id="audio" crossorigin="anonymous"></audio>
     </div>
     <div class="col-12 p-0 border sizeRe">
       <div class="row justify-content-center m-0 h-100">
@@ -52,6 +52,13 @@ export default {
     },
     play(){
       console.log('Play!');
+      var x = document.getElementById("audio");
+      if( x.paused){
+        x.play();
+      }
+      else{
+        x.pause();
+      }
     },
     adelante(){
       console.log('Adelante');
