@@ -11,7 +11,7 @@
     <b-collapse v-bind:id="idPla" class="mt-2">
       <div class="container">
         <ol class="list-group list-group-flush">
-          <ListItem></ListItem>
+          <ListItem @seleccionado="seleccionarLista(index)"></ListItem>
           <ListItem></ListItem>
           <ListItem></ListItem>
           <ListItem></ListItem>
@@ -35,9 +35,18 @@ export default {
   components:{
     ListItem
   },
+  data(){
+    return{
+      seleccionado:null
+    }
+  },
   methods:{
     lol(){
       this.$root.$emit('bv::toggle::collapse', this.idPla)
+    },
+    seleccionarLista(index){
+      this.seleccionado = index;
+      this.$$emit('seleccionarDato',index);
     }
   }
 };

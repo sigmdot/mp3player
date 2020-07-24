@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  name:"ListItem"
+  name:"ListItem",
+  methods:{
+    seleccionar(){
+      this.$emit('seleccionado');
+    }
+  }
 }
 </script>
 
