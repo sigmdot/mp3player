@@ -2,14 +2,14 @@
   <li class="list-group-item border-0  text-light" :class="{colorseleccionadox : seleccionadix == index , 'bg-dark' : seleccionadix != index }">
     <div class="col-12 p-0 row m-0" @click="seleccionar">
       <div class="col-12 p-0" :class="{scrolll : seleccionadix === index} ">
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem quas amet magnam necessitatibus quisquam ad porro dolorem ipsum consequatur, in vel. Atque quasi ipsa iste consequuntur? Fugiat, ipsam quod.</span>
+        <span>{{cancion.nombre}}</span>
       </div>
       <div
         class="col-6 p-0"
         style="overflow: hidden !important;
     white-space: nowrap !important;"
-      >Autor</div>
-      <div class="col-6 p-0">Quien lo publico</div>
+      > {{cancion.autor}} </div>
+      <div class="col-6 p-0"> {{cancion.quien}} </div>
     </div>
   </li>
 </template>
@@ -26,6 +26,7 @@ export default {
   props: {
     seleccionadix: Number,
     index: Number,
+    cancion:Object
   },
 };
 </script>
@@ -60,8 +61,14 @@ li {
   0% {
     -webkit-transform: translate(0, 0);
   }
-  100% {
-    -webkit-transform: translate(-100%, 0);
+  50% {
+    -webkit-transform: translate(100%, 0);
+  }
+  75%{
+    -webkit-transform: translate(50%, 0);
+  }
+  100%{
+    -webkit-transform: translate(0, 0);
   }
 }
 </style>

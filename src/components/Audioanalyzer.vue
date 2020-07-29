@@ -2,7 +2,7 @@
   <div>
     <div id="mp3">
       <audio
-        src="https://firebasestorage.googleapis.com/v0/b/mp3player-9f953.appspot.com/o/miplaylist%2F08%20-%20Jarabe%20para%20la%20tos.mp3?alt=media&token=00b6e474-92e8-43ec-b694-7c8539678ffd"
+        :src="source"
         id="audio"
         crossorigin="anonymous"
       ></audio>
@@ -40,6 +40,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.source);
     const audioMotion = new AudioMotionAnalyzer(
       document.getElementById("mp3"),
       {
@@ -112,32 +113,10 @@ export default {
         });
       }
     },
-  } /* ,
-    atras() {
-      console.log("Atras");
-    },
-    play() {
-      console.log("Play!");
-      var x = document.getElementById("audio");
-      if (x.paused) {
-        x.play();
-      } else {
-        x.pause();
-      }
-    },
-    adelante() {
-      console.log("Adelante");
-    },
-    like() {
-      console.log("Like");
-    },
-    aleatorio() {
-      const option = {
-        gradient: "classic",
-      };
-      this.audioMotionx.setOptions(option);
-    },
-  }, */,
+  } ,
+  props:{
+    source:String
+  }
 };
 </script>
 

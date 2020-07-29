@@ -12,7 +12,7 @@
     <b-collapse v-bind:id="idPla">
       <div class="container">
         <ol class="list-group">
-          <ListItem v-for="(cancion,index) in arraySongs" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index"></ListItem>
+          <ListItem v-for="(cancion,index) in arraySongs" @seleccionado="seleccionarLista(index)" :index="index" :seleccionadix="seleccionado" :key="index" :cancion="cancion"></ListItem>
         </ol>
       </div>
     </b-collapse>
@@ -47,7 +47,7 @@ export default {
     seleccionarLista(index){
       this.seleccionado = index;
       console.log(this.seleccionado);
-      this.$emit('seleccionarDato',index);
+      this.$emit('seleccionarDato',index,this.idPla);
       console.log("emitido 2");
     }
   },

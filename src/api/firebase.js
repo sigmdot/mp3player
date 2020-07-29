@@ -16,6 +16,7 @@ const firebaseConfig = firebase.initializeApp({
 
   const propio = firebaseConfig.firestore().collection('miplay');
   const visitas = firebaseConfig.firestore().collection('visita');
-
+  const storage = firebaseConfig.storage();
   export {propio}
   export {visitas}
+  export {storage}
