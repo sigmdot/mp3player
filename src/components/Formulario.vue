@@ -23,14 +23,15 @@
           />
         </div>
         <div class="form-group">
-          <input type="file" class="form-control-file" id="audiofile" hidden="hidden"/>
+          <input type="file" class="form-control-file" id="audiofile" hidden="hidden" @change="previewFiles" accept="audio/*" />
           <button type="button" class="btn btn-secondary" @click="abrirfile"> <b-icon icon="music-note-beamed"> </b-icon> Sube tú canción acá </button>
-          <audio src="" v-if="audioiscreated"></audio>
+          
         </div>
         <div class="text-right">
-          <button type="button" class="btn btn-primary">Subela subela!</button>
+          <button type="button" class="btn btn-primary" :disabled="!src">Subela subela!</button>
         </div>
       </form>
+     
     </b-collapse>
   </div>
 </template>
@@ -38,11 +39,34 @@
 <script>
 export default {
   name: "Formulario",
+  data(){
+    return{
+      files: null,
+      src:null
+    }
+  },
+  computed:{
+    
+  },
   methods:{
     abrirfile(){
       const audioFile = document.getElementById("audiofile");
-      console.log('xd')
+
+      console.log('xd',audioFile.value);
+
       audioFile.click();
+    },
+    previewFiles(events){
+      console.log(events.target.files[0].name.split("."));
+      var lol = events.target.files[0].name.split(".");
+      console.log(lol[lol.length-1]);
+      var reader = new FileReader();
+      reader.readAsDataURL(events.target.files[0]);
+      reader.onload = e=> {
+        this.src = e.target.result;
+        console.log(this.src)
+      }
+      this.files = events.target.files[0];
     }
   }
 };

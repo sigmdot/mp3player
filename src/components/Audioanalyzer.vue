@@ -1,17 +1,13 @@
 <template>
   <div>
     <div id="mp3">
-      <audio src="https://firebasestorage.googleapis.com/v0/b/mp3player-9f953.appspot.com/o/miplaylist%2F08%20-%20Jarabe%20para%20la%20tos.mp3?alt=media&token=00b6e474-92e8-43ec-b694-7c8539678ffd" id="audio" crossorigin="anonymous"></audio>
+      <audio
+        src="https://firebasestorage.googleapis.com/v0/b/mp3player-9f953.appspot.com/o/miplaylist%2F08%20-%20Jarabe%20para%20la%20tos.mp3?alt=media&token=00b6e474-92e8-43ec-b694-7c8539678ffd"
+        id="audio"
+        crossorigin="anonymous"
+      ></audio>
     </div>
-    <div class="col-12 p-0 border sizeRe">
-      <div class="row justify-content-center m-0 h-100">
-        <Button icono="skip-backward-fill" @click.native="atras" class="border-right"></Button>
-        <Button icono="play-fill" @click.native="play" class="border-right"></Button>
-        <Button icono="skip-forward-fill" @click.native="adelante" class="border-right"></Button>
-        <Button :icono="heart" @click.native="like" class="border-right"></Button>
-        <Button icono="shuffle" @click.native="aleatorio"></Button>
-      </div>
-    </div>
+    <Button @action="accion"></Button>
   </div>
 </template>
 
@@ -19,26 +15,37 @@
 import AudioMotionAnalyzer from "audiomotion-analyzer";
 import Button from "@/components/Button.vue";
 
-
 export default {
   name: "AudioAnalyzer",
   components: {
     Button,
   },
-  data(){
-    return{
-      heart:"heart-fill",
-      disabled:false
-    }
+  data() {
+    return {
+      heart: "heart-fill",
+      disabled: false,
+      colors: [
+        "classic",
+        "Relay",
+        "rainbow",
+        "Mini",
+        "Learning",
+        "Venice",
+        "Feel",
+        "Honey",
+        "Rose",
+        "Easy"
+      ],
+      audioMotionx: null,
+    };
   },
   mounted() {
-    const sizelol = document.getElementById("mp3").style.width;
-    console.log(sizelol);
     const audioMotion = new AudioMotionAnalyzer(
       document.getElementById("mp3"),
       {
         source: document.getElementById("audio"),
-        gradient: "classic",
+        showPeaks: true,
+        showScale: false,
         showLeds: true,
         smoothing: 0.9,
         mode: 6,
@@ -47,31 +54,90 @@ export default {
       }
     );
     console.log(audioMotion);
+    audioMotion.registerGradient("Relay", {
+      colorStops: ["#3A1C71", "#D76D77", "#FFAF7B"],
+      dir: "h",
+    });
+    audioMotion.registerGradient("Mini", {
+      colorStops: ["#30E8BF", "#FF8235"],
+      dir: "h",
+    });
+    audioMotion.registerGradient("Learning", {
+      dir: "h",
+      colorStops: ["#F7971E", "#FFD200"],
+    });
+    audioMotion.registerGradient("Venice", {
+      dir: "h",
+      colorStops: ["#6190E8", "#A7BFE8"],
+    });
+    audioMotion.registerGradient("Feel", {
+      dir: "h",
+      colorStops: ["#4568DC", "#B06AB3"],
+    });
+    audioMotion.registerGradient("Honey", {
+      dir: "h",
+      colorStops: ["#43C6AC", "#F8FFAE"],
+    });
+    audioMotion.registerGradient("Rose",{
+      dir:"h",
+      colorStops:["#E8CBC0","#636FA4"]
+    });
+    audioMotion.registerGradient("Easy",{
+      dir:"h",
+      colorStops:["#DCE35B","#45B649"]
+    })
+    this.audioMotionx = audioMotion;
   },
-  methods:{
-    atras(){
-      console.log('Atras');
-    },
-    play(){
-      console.log('Play!');
-      var x = document.getElementById("audio");
-      if( x.paused){
-        x.play();
+  methods: {
+    accion(event) {
+      if (event == "play") {
+        var x = document.getElementById("audio");
+        if (x.paused) {
+          x.play();
+        } else {
+          x.pause();
+        }
       }
-      else{
+      if (event == "atras") {
+        console.log("oye culiao era pa atrás");
+      }
+      if (event == "adelante") {
+        console.log("lol era pa adelante xd weon down");
+      }
+      if (event == "aleatorio") {
+        const numero = Math.floor(Math.random() * this.colors.length);
+        console.log(numero);
+        this.audioMotionx.setOptions({
+          gradient: this.colors[numero],
+        });
+      }
+    },
+  } /* ,
+    atras() {
+      console.log("Atras");
+    },
+    play() {
+      console.log("Play!");
+      var x = document.getElementById("audio");
+      if (x.paused) {
+        x.play();
+      } else {
         x.pause();
       }
     },
-    adelante(){
-      console.log('Adelante');
+    adelante() {
+      console.log("Adelante");
     },
-    like(){
-      console.log('Like');
+    like() {
+      console.log("Like");
     },
-    aleatorio(){
-      console.log('Aleatorio');
-    }
-  }
+    aleatorio() {
+      const option = {
+        gradient: "classic",
+      };
+      this.audioMotionx.setOptions(option);
+    },
+  }, */,
 };
 </script>
 
@@ -79,6 +145,12 @@ export default {
 canvas {
   width: 100% !important;
   height: 300px !important;
+  -webkit-border-top-left-radius: 12px;
+  -webkit-border-top-right-radius: 12px;
+  -moz-border-radius-topleft: 12px;
+  -moz-border-radius-topright: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .sizeRe {
   height: 50px !important;
@@ -91,8 +163,8 @@ canvas {
     height: 600px !important;
   }
 }
-@media (max-width:767px){
-  #mp3{
+@media (max-width: 767px) {
+  #mp3 {
     height: 300px;
   }
 }
